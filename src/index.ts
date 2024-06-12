@@ -11,8 +11,18 @@ if (!process.env.JWT_SECRET) {
   process.exit(1);
 }
 
+// TODO: Make this configurable.
+const PORT = 8024;
+
 new Elysia()
-  .use(swagger())
+  .use(swagger({
+    documentation: {
+      info: {
+          title: 'FartMap API Documentation',
+          version: (await Bun.file('package.json').json()).version,
+      }
+    }
+  }))
   .use(auth)
   .get("/", () => ({
     success: true,
@@ -26,4 +36,6 @@ new Elysia()
     return farts;
   })
 
-  .listen(3000);
+  .listen(PORT, () => {
+    console.log(`[listen] running on port ${PORT}`);
+  });
