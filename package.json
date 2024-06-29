@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "build:bin": "bun build src/index.ts --outfile bin --compile --minify"
   },
   "dependencies": {
     "@elysiajs/jwt": "^1.0.2",
