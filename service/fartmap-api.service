@@ -7,8 +7,8 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=centos
-# Change this path to the according one.
+User=ubuntu
+WorkingDirectory=/home/ubuntu/fartmap-api
 ExecStart=/home/ubuntu/fartmap-api/bin
 
 [Install]
