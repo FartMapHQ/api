@@ -1,0 +1,15 @@
+[Unit]
+Description=FartMap API service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=centos
+# Change this path to the according one.
+ExecStart=/home/ubuntu/fartmap-api/bin
+
+[Install]
+WantedBy=multi-user.target
